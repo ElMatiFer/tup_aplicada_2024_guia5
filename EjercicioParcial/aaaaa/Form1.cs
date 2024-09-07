@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace aaaaa
 {
@@ -16,19 +17,23 @@ namespace aaaaa
         public Form1()
         {
             InitializeComponent();
+            groupBox2.Enabled = false;
+            rbBanco.Checked = true;
         }
+        Presupuesto nuevo;
 
         private void btAgregar_Click(object sender, EventArgs e)
         {
-            Producto selec;
+            Producto p;
             if (rbBanco.Checked)
             {
+                
                 double precio = Convert.ToDouble(tbPrecio.Text);
                 double largo = Convert.ToDouble(tbLargo.Text);
                 int codigo = Convert.ToInt32(tbCodigo.Text);
-                selec = new Banco(precio, largo);
-                selec.Codigo = codigo;
-                
+                p = new Banco(precio, largo);
+                p.Codigo = codigo;
+                cbCodigos.Items.Add(codigo);
             }
             else if (rbBanco.Checked)
             {
@@ -38,8 +43,9 @@ namespace aaaaa
                 double grosor = Convert.ToDouble(tbGrosor.Text);
 
                 int codigo = Convert.ToInt32(tbCodigo.Text);
-                selec = new Mesa(precio, largo, ancho, grosor);
-                selec.Codigo = codigo;
+                p = new Mesa(precio, largo, ancho, grosor);
+                p.Codigo = codigo;
+                cbCodigos.Items.Add(codigo);
             }
         }
 
@@ -47,7 +53,40 @@ namespace aaaaa
         {
             string nombre = tbNombre.Text;
             string direccion = tbDireccion.Text;
-            Presupuesto nuevo = new Presupuesto(nombre, direccion);
+            nuevo = new Presupuesto(nombre, direccion);
+            groupBox2.Enabled = true;
+        }
+
+        private void btBorrar_Click(object sender, EventArgs e)
+        {
+            int codigo = Convert.ToInt32(cbCodigos.SelectedIndex);
+            if (!nuevo.QuitarProducto(codigo))
+            {
+                MessageBox.Show("No se encontro el producto", "Busqueda");
+            }
+            else
+            {
+                cbCodigos.Text = "";
+                cbCodigos.Items.Remove(codigo);
+            }
+           
+        }
+
+        private void btCerrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbBanco_CheckedChanged(object sender, EventArgs e)
+        {
+            tbGrosor.Enabled = false;
+            tbAncho.Enabled = false;
+        }
+
+        private void rbMesa_CheckedChanged(object sender, EventArgs e)
+        {
+            tbGrosor.Enabled = true;
+            tbAncho.Enabled = true;
         }
     }
 }

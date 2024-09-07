@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbNombre = new System.Windows.Forms.TextBox();
-            this.tbDireccion = new System.Windows.Forms.TextBox();
-            this.btIniciar = new System.Windows.Forms.Button();
-            this.btCerrar = new System.Windows.Forms.Button();
-            this.btBorrar = new System.Windows.Forms.Button();
             this.cbCodigos = new System.Windows.Forms.ComboBox();
+            this.btBorrar = new System.Windows.Forms.Button();
+            this.btCerrar = new System.Windows.Forms.Button();
+            this.btIniciar = new System.Windows.Forms.Button();
+            this.tbDireccion = new System.Windows.Forms.TextBox();
+            this.tbNombre = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbBanco = new System.Windows.Forms.RadioButton();
+            this.rbMesa = new System.Windows.Forms.RadioButton();
+            this.tbGrosor = new System.Windows.Forms.TextBox();
+            this.tbLargo = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbCodigo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btAgregar = new System.Windows.Forms.Button();
             this.tbAncho = new System.Windows.Forms.TextBox();
             this.tbPrecio = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbCodigo = new System.Windows.Forms.TextBox();
-            this.tbGrosor = new System.Windows.Forms.TextBox();
-            this.tbLargo = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.rbBanco = new System.Windows.Forms.RadioButton();
-            this.rbMesa = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -72,39 +72,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cliente";
             // 
-            // label1
+            // cbCodigos
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Nombre:";
+            this.cbCodigos.FormattingEnabled = true;
+            this.cbCodigos.Location = new System.Drawing.Point(9, 87);
+            this.cbCodigos.Name = "cbCodigos";
+            this.cbCodigos.Size = new System.Drawing.Size(158, 21);
+            this.cbCodigos.TabIndex = 8;
             // 
-            // label2
+            // btBorrar
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Direccion:";
+            this.btBorrar.Location = new System.Drawing.Point(184, 87);
+            this.btBorrar.Name = "btBorrar";
+            this.btBorrar.Size = new System.Drawing.Size(162, 23);
+            this.btBorrar.TabIndex = 7;
+            this.btBorrar.Text = "Borrar";
+            this.btBorrar.UseVisualStyleBackColor = true;
+            this.btBorrar.Click += new System.EventHandler(this.btBorrar_Click);
             // 
-            // tbNombre
+            // btCerrar
             // 
-            this.tbNombre.Location = new System.Drawing.Point(67, 15);
-            this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(100, 20);
-            this.tbNombre.TabIndex = 3;
-            // 
-            // tbDireccion
-            // 
-            this.tbDireccion.Location = new System.Drawing.Point(67, 45);
-            this.tbDireccion.Name = "tbDireccion";
-            this.tbDireccion.Size = new System.Drawing.Size(100, 20);
-            this.tbDireccion.TabIndex = 4;
+            this.btCerrar.Location = new System.Drawing.Point(184, 42);
+            this.btCerrar.Name = "btCerrar";
+            this.btCerrar.Size = new System.Drawing.Size(162, 23);
+            this.btCerrar.TabIndex = 6;
+            this.btCerrar.Text = "Cerrar presupuesto";
+            this.btCerrar.UseVisualStyleBackColor = true;
+            this.btCerrar.Click += new System.EventHandler(this.btCerrar_Click);
             // 
             // btIniciar
             // 
@@ -116,31 +110,39 @@
             this.btIniciar.UseVisualStyleBackColor = true;
             this.btIniciar.Click += new System.EventHandler(this.btIniciar_Click);
             // 
-            // btCerrar
+            // tbDireccion
             // 
-            this.btCerrar.Location = new System.Drawing.Point(184, 42);
-            this.btCerrar.Name = "btCerrar";
-            this.btCerrar.Size = new System.Drawing.Size(162, 23);
-            this.btCerrar.TabIndex = 6;
-            this.btCerrar.Text = "Cerrar presupuesto";
-            this.btCerrar.UseVisualStyleBackColor = true;
+            this.tbDireccion.Location = new System.Drawing.Point(67, 45);
+            this.tbDireccion.Name = "tbDireccion";
+            this.tbDireccion.Size = new System.Drawing.Size(100, 20);
+            this.tbDireccion.TabIndex = 4;
             // 
-            // btBorrar
+            // tbNombre
             // 
-            this.btBorrar.Location = new System.Drawing.Point(184, 87);
-            this.btBorrar.Name = "btBorrar";
-            this.btBorrar.Size = new System.Drawing.Size(162, 23);
-            this.btBorrar.TabIndex = 7;
-            this.btBorrar.Text = "Borrar";
-            this.btBorrar.UseVisualStyleBackColor = true;
+            this.tbNombre.Location = new System.Drawing.Point(67, 15);
+            this.tbNombre.Name = "tbNombre";
+            this.tbNombre.Size = new System.Drawing.Size(100, 20);
+            this.tbNombre.TabIndex = 3;
             // 
-            // cbCodigos
+            // label2
             // 
-            this.cbCodigos.FormattingEnabled = true;
-            this.cbCodigos.Location = new System.Drawing.Point(9, 87);
-            this.cbCodigos.Name = "cbCodigos";
-            this.cbCodigos.Size = new System.Drawing.Size(158, 21);
-            this.cbCodigos.TabIndex = 8;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 15);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Direccion:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nombre:";
             // 
             // groupBox2
             // 
@@ -163,6 +165,81 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Productos";
+            // 
+            // rbBanco
+            // 
+            this.rbBanco.AutoSize = true;
+            this.rbBanco.Location = new System.Drawing.Point(82, 123);
+            this.rbBanco.Name = "rbBanco";
+            this.rbBanco.Size = new System.Drawing.Size(56, 17);
+            this.rbBanco.TabIndex = 2;
+            this.rbBanco.TabStop = true;
+            this.rbBanco.Text = "Banco";
+            this.rbBanco.UseVisualStyleBackColor = true;
+            this.rbBanco.CheckedChanged += new System.EventHandler(this.rbBanco_CheckedChanged);
+            // 
+            // rbMesa
+            // 
+            this.rbMesa.AutoSize = true;
+            this.rbMesa.Location = new System.Drawing.Point(218, 123);
+            this.rbMesa.Name = "rbMesa";
+            this.rbMesa.Size = new System.Drawing.Size(51, 17);
+            this.rbMesa.TabIndex = 3;
+            this.rbMesa.TabStop = true;
+            this.rbMesa.Text = "Mesa";
+            this.rbMesa.UseVisualStyleBackColor = true;
+            this.rbMesa.CheckedChanged += new System.EventHandler(this.rbMesa_CheckedChanged);
+            // 
+            // tbGrosor
+            // 
+            this.tbGrosor.Location = new System.Drawing.Point(246, 46);
+            this.tbGrosor.Name = "tbGrosor";
+            this.tbGrosor.Size = new System.Drawing.Size(100, 20);
+            this.tbGrosor.TabIndex = 13;
+            // 
+            // tbLargo
+            // 
+            this.tbLargo.Location = new System.Drawing.Point(246, 16);
+            this.tbLargo.Name = "tbLargo";
+            this.tbLargo.Size = new System.Drawing.Size(100, 20);
+            this.tbLargo.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(197, 47);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 15);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Grosor:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(202, 17);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 15);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Largo:";
+            // 
+            // tbCodigo
+            // 
+            this.tbCodigo.Location = new System.Drawing.Point(67, 77);
+            this.tbCodigo.Name = "tbCodigo";
+            this.tbCodigo.Size = new System.Drawing.Size(100, 20);
+            this.tbCodigo.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 77);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 15);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Codigo:";
             // 
             // btAgregar
             // 
@@ -208,79 +285,6 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Precio B:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 77);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 15);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Codigo:";
-            // 
-            // tbCodigo
-            // 
-            this.tbCodigo.Location = new System.Drawing.Point(67, 77);
-            this.tbCodigo.Name = "tbCodigo";
-            this.tbCodigo.Size = new System.Drawing.Size(100, 20);
-            this.tbCodigo.TabIndex = 9;
-            // 
-            // tbGrosor
-            // 
-            this.tbGrosor.Location = new System.Drawing.Point(246, 46);
-            this.tbGrosor.Name = "tbGrosor";
-            this.tbGrosor.Size = new System.Drawing.Size(100, 20);
-            this.tbGrosor.TabIndex = 13;
-            // 
-            // tbLargo
-            // 
-            this.tbLargo.Location = new System.Drawing.Point(246, 16);
-            this.tbLargo.Name = "tbLargo";
-            this.tbLargo.Size = new System.Drawing.Size(100, 20);
-            this.tbLargo.TabIndex = 12;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(197, 47);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 15);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Grosor:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(202, 17);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 15);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Largo:";
-            // 
-            // rbBanco
-            // 
-            this.rbBanco.AutoSize = true;
-            this.rbBanco.Location = new System.Drawing.Point(82, 123);
-            this.rbBanco.Name = "rbBanco";
-            this.rbBanco.Size = new System.Drawing.Size(56, 17);
-            this.rbBanco.TabIndex = 2;
-            this.rbBanco.TabStop = true;
-            this.rbBanco.Text = "Banco";
-            this.rbBanco.UseVisualStyleBackColor = true;
-            // 
-            // rbMesa
-            // 
-            this.rbMesa.AutoSize = true;
-            this.rbMesa.Location = new System.Drawing.Point(218, 123);
-            this.rbMesa.Name = "rbMesa";
-            this.rbMesa.Size = new System.Drawing.Size(51, 17);
-            this.rbMesa.TabIndex = 3;
-            this.rbMesa.TabStop = true;
-            this.rbMesa.Text = "Mesa";
-            this.rbMesa.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,7 +305,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cbCodigos;
         private System.Windows.Forms.Button btBorrar;
         private System.Windows.Forms.Button btCerrar;
         private System.Windows.Forms.Button btIniciar;
@@ -323,6 +326,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbCodigo;
         private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.ComboBox cbCodigos;
     }
 }
 

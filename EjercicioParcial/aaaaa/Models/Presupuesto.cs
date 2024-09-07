@@ -28,30 +28,20 @@ namespace aaaaa.Models
         {
             solicitante = new Cliente(nombre,direccion);
         }
-        public Producto Busqueda(int codigo)
+        private Producto Busqueda(int codigo)
         {
-            int med=0, izq = 0, der = listaProductos.Count -1;
-            bool encontrado = false;
-
-            while (izq <= der && !encontrado)
+            Producto buscar = new Banco(0, 0);
+            buscar.Codigo = codigo;
+            listaProductos.Sort();
+            int orden = listaProductos.BinarySearch(buscar);
+            if (orden >= 0)
             {
-                med = (izq + der) / 2;
-                
-                if (((Producto)listaProductos[med]).Codigo == codigo)
-                {
-                    encontrado = true;
-                    med = codigo;
-                }
-                else if (((Producto)listaProductos[med]).Codigo < codigo)
-                {
-                    med = der - 1;
-                }
-                else
-                {
-                    med = izq + 1;
-                }
+                return listaProductos[orden] as Producto;
             }
-            return ((Producto)listaProductos[med]);
+            else
+            {
+                return null;
+            }
 
         }
         public void AgregarProducto(Producto unProducto)
@@ -60,6 +50,27 @@ namespace aaaaa.Models
             {
                 listaProductos.Add(unProducto);
             }
+        }
+        public bool QuitarProducto(int codigo)
+        {
+            Producto b = Busqueda(codigo);
+            if (b != null)
+            {
+                listaProductos.Remove(b);
+                return true;
+            }
+            return false;
+        }
+        public string[] Resumen()
+        {
+            Producto p;
+            string[] r = new string[listaProductos.Count];
+            for (int i = 0; i< r.Length;i++)
+            {
+                p = (Producto)listaProductos[i];
+                r[i] = p.Codigo + ";" + p.Precio();
+            }
+            return r;
         }
     }
 }
