@@ -33,10 +33,10 @@ namespace aaaaa.Models
             Producto buscar = new Banco(0, 0);
             buscar.Codigo = codigo;
             listaProductos.Sort();
-            int orden = listaProductos.BinarySearch(buscar);
-            if (orden >= 0)
+            int idx = listaProductos.BinarySearch(buscar);
+            if (idx >= 0)
             {
-                return listaProductos[orden] as Producto;
+                return listaProductos[idx] as Producto;
             }
             else
             {
@@ -53,24 +53,33 @@ namespace aaaaa.Models
         }
         public bool QuitarProducto(int codigo)
         {
-            Producto b = Busqueda(codigo);
-            if (b != null)
+            Producto p = Busqueda(codigo);
+            if (p != null)
             {
-                listaProductos.Remove(b);
+                listaProductos.Remove(p);
                 return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }
+ 
         }
         public string[] Resumen()
         {
             Producto p;
-            string[] r = new string[listaProductos.Count];
-            for (int i = 0; i< r.Length;i++)
+
+            string[] resumen = new string[listaProductos.Count+1];
+
+            for (int i = 0; i< resumen.Length-1; i++)
             {
                 p = (Producto)listaProductos[i];
-                r[i] = p.Codigo + ";" + p.Precio();
+                resumen[i] = $"Codigo: {p.Codigo} | Precio: {p.Precio()}";
             }
-            return r;
+
+            resumen[listaProductos.Count] = $"Total: {Precio}";
+
+            return resumen;
         }
     }
 }

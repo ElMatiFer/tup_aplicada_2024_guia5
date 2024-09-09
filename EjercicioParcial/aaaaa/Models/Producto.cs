@@ -33,10 +33,9 @@ namespace aaaaa.Models
 
         public int CompareTo(object obj)
         {
-            Producto prod = obj as Producto;
-            if (prod != null)
+            if (obj != null && obj is Producto)
             {
-                return Codigo.CompareTo(prod.Codigo);
+                return Codigo.CompareTo(((Producto)obj).Codigo);
             }
             return 1;
         }

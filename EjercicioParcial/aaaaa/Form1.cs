@@ -19,7 +19,9 @@ namespace aaaaa
             InitializeComponent();
             groupBox2.Enabled = false;
             rbBanco.Checked = true;
+            btCerrar.Enabled = false;
         }
+
         Presupuesto nuevo;
 
         private void btAgregar_Click(object sender, EventArgs e)
@@ -27,25 +29,29 @@ namespace aaaaa
             Producto p;
             if (rbBanco.Checked)
             {
-                
                 double precio = Convert.ToDouble(tbPrecio.Text);
                 double largo = Convert.ToDouble(tbLargo.Text);
                 int codigo = Convert.ToInt32(tbCodigo.Text);
+
                 p = new Banco(precio, largo);
                 p.Codigo = codigo;
+
                 cbCodigos.Items.Add(codigo);
+                nuevo.AgregarProducto(p);
             }
-            else if (rbBanco.Checked)
+            else if (rbMesa.Checked)
             {
                 double precio = Convert.ToDouble(tbPrecio.Text);
                 double largo = Convert.ToDouble(tbLargo.Text);
                 double ancho = Convert.ToDouble(tbAncho.Text);
                 double grosor = Convert.ToDouble(tbGrosor.Text);
-
                 int codigo = Convert.ToInt32(tbCodigo.Text);
+
                 p = new Mesa(precio, largo, ancho, grosor);
                 p.Codigo = codigo;
+
                 cbCodigos.Items.Add(codigo);
+                nuevo.AgregarProducto(p);
             }
         }
 
@@ -53,28 +59,37 @@ namespace aaaaa
         {
             string nombre = tbNombre.Text;
             string direccion = tbDireccion.Text;
+
             nuevo = new Presupuesto(nombre, direccion);
             groupBox2.Enabled = true;
+
+            btCerrar.Enabled = true;
         }
 
         private void btBorrar_Click(object sender, EventArgs e)
         {
-            int codigo = Convert.ToInt32(cbCodigos.SelectedIndex);
-            if (!nuevo.QuitarProducto(codigo))
-            {
-                MessageBox.Show("No se encontro el producto", "Busqueda");
-            }
-            else
+            int codigo = Convert.ToInt32(cbCodigos.SelectedItem.ToString());
+
+            if(nuevo.QuitarProducto(codigo))
             {
                 cbCodigos.Text = "";
                 cbCodigos.Items.Remove(codigo);
             }
-           
+            else
+            {
+                MessageBox.Show("No se encontro el producto", "Busqueda");
+            }
         }
 
         private void btCerrar_Click(object sender, EventArgs e)
         {
-
+            fVer v = new fVer();
+            string[] resumen = nuevo.Resumen();
+            for (int i = 0; i < resumen.Length; i++)
+            {
+                v.lbResumen.Items.Add(resumen[i]);
+            }
+            v.ShowDialog();
         }
 
         private void rbBanco_CheckedChanged(object sender, EventArgs e)
